@@ -1,15 +1,24 @@
-# Basic Sample Hardhat Project
+# WavesPortal contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Basic Smart Contract definition and deploy command.
 
-Try running some of the following tasks:
+Basic usage:
+- Store a Wave Struct globally with some methods for retrieve and create a new wave to the contract creator address-
+- Randomly (50% chance) reward to the waver with an amount `0.0001 ether`
+- Avoid spam allowing only 15 minutes between each wave.
 
+Command for test the smart contract functionallity before push in a hardhat network local:
 ```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+npx hardhat run scripts/run.js
+```
+
+Before deploy the smart contract you need:
+- Get some rinkeby ETH for fund the smart contract during the deploy
+- Create a `.env` with the following values:
+    - ALCHEMY_KEY: Alchemy app url.
+    - PRIVATE_KEY: Metamask private key.
+
+Command for deploy the contract to the rinkeby netowork:
+```shell
+npx hardhat run scripts/deploy.js --network rinkeby
 ```
